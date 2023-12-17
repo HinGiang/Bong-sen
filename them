@@ -1,4 +1,31 @@
-  }else{
+#include <Servo.h>
+#include <RCSwitch.h>
+
+// Servo ser;
+// Servo myservo9;  
+
+int state = 1;
+unsigned long num ;
+
+int pos1 = 0;
+int pos2 = 30;
+int prefix1 = 1;
+int prefix2 = 15;
+int prefix3 = 20;
+int NUM_SERVOS = -1;
+bool instate2 = false;
+bool instate3 = false;
+int previousState = -1;
+#define NUM_SERVOS 12
+bool servoState[NUM_SERVOS];
+Servo myservo[NUM_SERVOS];
+
+unsigned long stateThreeDelay[NUM_SERVOS];
+
+
+
+
+}else{
     for (int i=0; i<NUM_SERVOS; i++){
       if (millis() - stateThreeDelay[i] > 5000){ // delay 5s
         stateThreeDelay[i] = 0;
