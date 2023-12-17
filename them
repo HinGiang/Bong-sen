@@ -1,0 +1,26 @@
+  }else{
+    for (int i=0; i<NUM_SERVOS; i++){
+      if (millis() - stateThreeDelay[i] > 5000){ // delay 5s
+        stateThreeDelay[i] = 0;
+      }
+      if (stateThreeDelay[i] == 0){
+        int cur = myservo[i].read();
+        if (servoState[i]){
+          cur++;
+        }else{
+          cur--;
+        }
+        if (cur == pos2 - prefix3){
+          servoState[i] = true;
+          stateThreeDelay[i] = millis(); 
+        }
+        if (cur == pos2 + prefix3){
+          servoState[i] = false;
+          stateThreeDelay[i] = millis();
+        }
+        myservo[i].write(cur);
+      }
+    }
+    delay(70); // delay tăng giảm state 3
+  }
+}
